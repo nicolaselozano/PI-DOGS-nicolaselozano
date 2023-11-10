@@ -1,6 +1,6 @@
 const {Temperament} = require("../db");
 
-const {getAllTemperaments} = require("../handlers/getAllTemperaments");
+const {getAllTemperaments} = require("../controllers/getAllTemperaments");
 
 //Hago el get a la Api y despues hago un post a la DB
 const getTemperaments = async (req,res) => {

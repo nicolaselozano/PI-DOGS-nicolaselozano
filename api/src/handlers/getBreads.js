@@ -1,4 +1,4 @@
-const {GetAllBreeds} = require("../handlers/GetAllBreeds");
+const {GetAllBreeds} = require("../controllers/GetAllBreeds");
 
 const getBreads = async (req,res) => {
 

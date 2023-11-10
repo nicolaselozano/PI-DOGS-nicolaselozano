@@ -1,6 +1,6 @@
 
-const {ByIdDB} = require("../handlers/ByIdDB");
-const {ByIdAPI} = require("../handlers/ByIdAPI");
+const {ByIdDB} = require("../controllers/ByIdDB");
+const {ByIdAPI} = require("../controllers/ByIdAPI");
 
 
 

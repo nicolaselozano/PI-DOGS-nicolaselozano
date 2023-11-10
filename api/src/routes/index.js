@@ -1,17 +1,17 @@
 const { Router } = require('express');
 
 
-const {postDog} = require("../controllers/postDog");
+const {postDog} = require("../handlers/postDog");
 
-const {getBreads} = require("../controllers/getBreads");
+const {getBreads} = require("../handlers/getBreads");
 
-const {getDogById} = require("../controllers/getDogById");
+const {getDogById} = require("../handlers/getDogById");
 
-const {getTemperaments} = require("../controllers/getTemperaments");
+const {getTemperaments} = require("../handlers/getTemperaments");
 
-const {getDogByName} = require("../controllers/getDogByName");
+const {getDogByName} = require("../handlers/getDogByName");
 
-
+const {getBreedsImage} = require("../handlers/getBreedsImage")
 
 const router = Router();
 
@@ -20,23 +20,24 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 router.post("/",postDog);
+
 router.get("/", (req,res) =>{
 
     const {name} = req.query;
 
-    //corroboro que name este para hacer la peticion por query 
+    //busco por nombre o traigo todas las razas
     
-    if(name){
-        getDogByName(req,res);
-    }else{
-        getBreads(req,res);
-    }
+    if(name)getDogByName(req,res);
+
+    else getBreads(req,res);
 
 });
 
 router.get("/temperaments",getTemperaments);
 
 router.get("/:idBreed",getDogById);
+
+router.get("/image/:id",getBreedsImage);
 
 
 

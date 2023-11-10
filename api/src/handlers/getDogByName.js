@@ -1,5 +1,5 @@
-const {getDogFromDB} = require("../handlers/ByNameDB")
-const {getDogFromAPI} = require("../handlers/ByNameAPI")
+const {getDogFromDB} = require("../controllers/ByNameDB")
+const {getDogFromAPI} = require("../controllers/ByNameAPI")
 
 const getDogByName = async (req,res) => {
 
@@ -8,6 +8,7 @@ const getDogByName = async (req,res) => {
         
         const {name} = req.query;
 
+        console.log(name)
         //Busco el a la raza en la DB si existe
         
         const responseDB = await getDogFromDB(name);

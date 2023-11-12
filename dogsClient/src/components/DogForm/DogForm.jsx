@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {createDog} from "../../services/apiService"
+import DogFormViewer from "../DogFormViewer/DogFormViewer";
  
 const DogForm = () => {
 
@@ -88,6 +89,8 @@ const DogForm = () => {
                     <button type="submit" >Submit</button>
                 </fieldset>
             </form>
+
+            <DogFormViewer infoDog={infoDog}/>
         </div>
 
     );

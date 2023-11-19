@@ -4,8 +4,9 @@ const URL = `https://api.thedogapi.com/v1/breeds`
 
 const {Dog,Temperament} = require("../db");
 
-const GetAllBreeds = async () => {
+const LimitedGetAllBreeds = async (props) => {
 
+    const {limit} = props;
 
     try {
         
@@ -17,14 +18,16 @@ const GetAllBreeds = async () => {
         
                 }
             }),
-            Dog.findAll({include:Temperament}),
+            Dog.findAll({
+                include: Temperament,
+                limit:limit,
+            }),
 
         ])
 
 
     
         const apiData= await apiResponse.json( );
-
 
         return [...apiData,...dbResponse];
 
@@ -37,6 +40,6 @@ const GetAllBreeds = async () => {
 
 module.exports = {
 
-    GetAllBreeds,
+    LimitedGetAllBreeds,
 
 }

@@ -1,7 +1,9 @@
 const {Dog, Temperament} = require("../db");
 
+
 const postDog = async (req,res) => {
 
+    //temperament_id es un arreglo con id de temperamentos
     const {image, height, weight, life_span, name,temperament_id} = req.body;
 
     try {
@@ -25,12 +27,16 @@ const postDog = async (req,res) => {
 
             
         });
-
-        if(temperament_id){
-            const temp = await Temperament.findByPk(temperament_id);
-            await dogInstance.addTemperament(temp);
-        }
-       
+        
+        if (temperament_id) {
+            for (const temp of temperament_id) {
+              const temperament = await Temperament.findByPk(temp);
+              if (temperament) {
+                await dogInstance.addTemperament(temperament);
+              }
+            }
+          }
+      
 
         res.status(200).json({message:"Personaje posteado"});
 

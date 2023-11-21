@@ -4,6 +4,8 @@ import DogForm from "./components/DogForm/DogForm";
 import LandingPage from './components/LandingPage/LandingPage';
 import { SBackground } from './styles/SBackground';
 import HomePage from './components/HomePage/HomePage';
+import Detail from './components/HomePage/Detail/Detail';
+import Nav from './components/Nav/Nav';
 
 
 function App() {
@@ -20,9 +22,10 @@ function App() {
   return (
 
     <SBackground>
-      
+      {location.pathname !== "/" ? (<Nav/>) : null }
       <Routes>
 
+        <Route path='/home/detail/:id'  element={<Detail/>}/>
         <Route path='/create'  element={<DogForm/>}/>
 
         <Route path='/' element={<LandingPage login={login}/>}/>

@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import imgExample from "../../../assets/ejemplodogo.jpg";
 import {Link} from "react-router-dom";
  
-const Card = ({imagePromise,name,weight,temperament}) => {
+const Card = ({imagePromise,name,weight,temperament,id}) => {
 
     const [imageLoaded, setImageLoaded] = useState(false);
     const [imageUrl, setImageUrl] = useState(null);
@@ -35,7 +36,7 @@ const Card = ({imagePromise,name,weight,temperament}) => {
         
         <div>
 
-            <Link to={`detail/${name}`}>
+            <Link to={`detail/${id}`}>
               <h2 className="">{name}</h2>
             </Link>
             <h2 className="">{weight}</h2>

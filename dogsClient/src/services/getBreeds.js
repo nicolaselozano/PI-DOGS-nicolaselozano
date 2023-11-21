@@ -1,5 +1,3 @@
-import {filterBreeds} from "../scripts/Filters/filterBreeds"
-
 const URL = "http://localhost:3001/dogs";
 
 const init= {
@@ -19,8 +17,6 @@ export const getBreeds = async () => {
             
             const data = await response.json();
 
-
-            console.log(data)
             return  data
 
         }

@@ -1,10 +1,16 @@
 /* eslint react/prop-types: 0 */
 import { useEffect, useState } from "react";
+import{useLocation} from "react-router-dom";
 import getTemperaments from "../../services/getTemperaments.js"
 import style from "./SelectTemperament.module.css"
 
 //Selector desplegable de multiple opcion, con un filtro por el id del Temperamento
-const SelectTemperament = ({onSelect}) => {
+//onSelectHome es un metodo que esta en home para aprobechar este componente ahi
+const SelectTemperament = ({onSelect,onSelectHome}) => {
+
+    //si estamos en Home no mostras el add ni el reset solo el filtrarPorTemp
+
+    const location = useLocation();
 
     //temperaments es la propiedad que viene en el json con los temps
 
@@ -90,6 +96,15 @@ const SelectTemperament = ({onSelect}) => {
         return null; 
     }
 
+    //metodo solo para el filtro de HOME 
+
+
+    const handleFilterHome = () =>{
+        
+        onSelectHome(actTemp)
+
+    }
+
     return(
         <div className={style.container}>
             <label htmlFor="temperament">Temperament</label>
@@ -109,8 +124,17 @@ const SelectTemperament = ({onSelect}) => {
                 </option>
                 {options}
             </select>
-            <button type="button" onClick={handleAddTemperament}>add</button>
-            <button type="button" onClick={handleResetTemperaments}>Reset Temperaments</button>
+            {
+                location.pathname === "/home" ? (
+                    <button type="button" onClick={handleFilterHome}>Filter By Temperament</button>
+                ) :
+                (<div>
+                    <button type="button" onClick={handleAddTemperament}>add</button>
+                    <button type="button" onClick={handleResetTemperaments}>Reset Temperaments</button>
+                </div>)
+                
+            }
+            
             <ul>
                 {selectedTemps ? selectedTemps.map((temp, index) => (
                     <li key={index}>{getKeyByValue(allTemperaments,temp)}</li>

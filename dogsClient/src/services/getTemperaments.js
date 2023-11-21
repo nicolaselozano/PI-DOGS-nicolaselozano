@@ -13,8 +13,6 @@ const getTemperaments = async () => {
         const response = await fetch(URL,init);
 
         if(response.ok){
-            
-            console.log("Temperamenstos tomados correctamente");
 
             const data = await response.json();
             return data;

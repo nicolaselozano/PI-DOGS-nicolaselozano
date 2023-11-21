@@ -1,23 +1,13 @@
 require("dotenv").config();
-const { API_KEY } = process.env;
-const URL = `https://api.thedogapi.com/v1/images/`
+const IMG_URL = `https://cdn2.thedogapi.com/images/`
 
-//busca la url en el json
+//busca la imagen pasando directamente la url con su id
 const imageById = async (id) => {
 
-    const response = await fetch(`${URL}${id}`,{
+    const response = `${IMG_URL}${id}.jpg`;
 
-        headers:{
-
-            'x-api-key' : API_KEY,
-            
-        }
-        
-    })
-
-    const data = await response.json();
-
-    return data.url || null;
+    console.log(response)
+    return response;
 
 }
 

@@ -1,0 +1,28 @@
+.link__container {
+    position: fixed;
+    width: 100%;
+    background-color: rgb(195, 241, 225);
+    padding: 0.56rem;
+    display: flex;
+    justify-content: center;
+}
+
+.container__nav {
+    
+    width: 100%;
+}
+
+.link {
+  padding: 0.2rem;
+  text-decoration: none;
+  color: #3b5a88; 
+  background-color: rgba(47, 202, 192, 0.587); 
+  border: 1px solid rgb(35, 148, 205); 
+  border-radius: 0.6rem; 
+
+}
+
+.link:hover {
+    color: rgb(18, 160, 160);
+    background-color: rgb(190, 237, 226);
+}

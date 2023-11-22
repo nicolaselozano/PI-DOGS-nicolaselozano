@@ -22,7 +22,7 @@ function App() {
   return (
 
     <SBackground>
-      {location.pathname !== "/" ? (<Nav/>) : null }
+      {location.pathname !== "/" ? (<Nav className="nav" />) : null }
       <Routes>
 
         <Route path='/home/detail/:id'  element={<Detail/>}/>

@@ -35,6 +35,7 @@ const Detail = () =>{
             
           } catch (error) {
             if (isMounted) {
+              
               console.error("Error getting image URL:", error);
               
               setImageLoaded(true);

@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import {useDispatch, useSelector} from "react-redux";
 import { getDogs,setPaginacion } from "../../redux";
 import Cards from "./Cards/Cards";
-import Filter from "./Nav/Filter";
-
+import Filter from "./Filter/Filter";
+import styles from "./homepage.module.css"
 
 const HomePage = () => {
 
@@ -30,6 +30,7 @@ const HomePage = () => {
         dispatch(setPaginacion("prev", AllDogs));
 
     },[AllDogs])
+
 
 
 
@@ -77,14 +78,17 @@ const HomePage = () => {
 
     return(
 
-            <div>
+            <div className={styles.container}>
                 <Filter handleFilter={handleFilter}/>
                 {!isLoading ? <span>Loading</span> : null}
                 <h1>HomePage</h1>
 
                 <Cards breeds={actualDogs}/>
-                <button onClick={handlePrevPage}>Prev</button>
-                <button onClick={handleNextPage}>next</button>
+                <div>
+                    <button className={styles.container__pagination} onClick={handlePrevPage}>Prev</button>
+                    <button className={styles.container__pagination} onClick={handleNextPage}>next</button>
+                </div>
+
 
             </div>
 

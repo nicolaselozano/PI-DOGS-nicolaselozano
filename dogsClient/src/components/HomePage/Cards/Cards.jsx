@@ -4,6 +4,7 @@ import getImage from "../../../services/getImage";
 
 import Card from "../Card/Card";
 
+import styles from "./cards.module.css";
 
 const Cards = ({breeds}) => {
 
@@ -11,7 +12,7 @@ const Cards = ({breeds}) => {
     // eslint-disable-next-line react/prop-types
    
     return(
-        <div>
+        <div className={styles.container}>
             {
                 breeds ?
                 breeds.map((data,index) => {
@@ -25,14 +26,17 @@ const Cards = ({breeds}) => {
                     const verifiedImage = image.length > 0 ? Promise.resolve(image) : getImage(reference_image_id);
                 
                     return(
-                        <Card
-                        key={index}
-                        id={id}
-                        imagePromise={verifiedImage}
-                        name = {name}
-                        weight = {verifiedWeight}
-                        temperament = {verfiedTemp}
-                        />
+
+                        <div key={index}>
+                            <Card
+                            id={id}
+                            imagePromise={verifiedImage}
+                            name = {name}
+                            weight = {verifiedWeight}
+                            temperament = {verfiedTemp}
+                            />
+                        </div>
+
                     )
                 }) : null
             }

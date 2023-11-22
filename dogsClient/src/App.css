@@ -5,6 +5,9 @@
   text-align: center;
 }
 
+.nav{
+  background-color: rgb(98, 255, 0);
+}
 .logo {
   height: 6em;
   padding: 1.5em;

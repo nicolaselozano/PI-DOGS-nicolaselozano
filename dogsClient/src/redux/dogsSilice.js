@@ -18,6 +18,7 @@ export const dogsReducer = createSlice ({
         updateDogs: (state,/*action*/) => {
 
             state.isLoading = true;
+            state.actualDogs = [];
             
         },
         setDogs: (state,action) =>{
@@ -36,8 +37,9 @@ export const dogsReducer = createSlice ({
         setDetail: (state,action) =>{
             state.detailBreed = action.payload.detailBreed;
         },
-        cleanDetail: (state,action) => {
+        cleanDetail: (state,/*action*/) => {
             state.detailBreed = {}
+            state.actualDogs = []
         }
     },
 })

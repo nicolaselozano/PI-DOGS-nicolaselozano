@@ -3,6 +3,8 @@ import {createDog} from "../../services/apiService"
 import DogFormViewer from "../DogFormViewer/DogFormViewer";
 import SelectTemperament from "../SelectTemperament/SelectTemperament";
 import validations from "../../scripts/validations";
+import styles from "./dogForm.mudule.css";
+
 
 const DogForm = () => {
 
@@ -105,7 +107,7 @@ const DogForm = () => {
 
     return(
 
-        <div>
+        <div className={styles.container}>
             <form onSubmit={handleSubmit}>
                 <fieldset>
                     <legend>Create Dog</legend>

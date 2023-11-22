@@ -7,13 +7,15 @@ import {getBreeds} from "../services/getBreeds"
 
 import {getBreedById} from "../services/getBreedById"
 
+import { useNavigate } from 'react-router-dom';
+
 const viewBreeds = 8;
 
 
 export const getDogs = () => {
     // eslint-disable-next-line no-unused-vars
     return async (dispatch,getState) => {
-
+        const state = getState();
         dispatch( updateDogs());
 
         try {
@@ -26,7 +28,7 @@ export const getDogs = () => {
 
                 filterBreeds : dataPages,
                 AllDogs:dataPages,
-                page : 0
+                page : state.page
 
             }))
 
@@ -43,6 +45,7 @@ export const getDogs = () => {
 //filtro los perros segun su especificacion si la hay y me muevo por las paginas
 
 export const setPaginacion = (moveTo, data, filter) => {
+
     return (dispatch, getState) => {
         dispatch(updateDogs());
         const state = getState();

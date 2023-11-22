@@ -1,0 +1,55 @@
+.card {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 15rem;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid rgb(222, 222, 222);
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: rgba(47, 202, 192, 0.587);
+  box-shadow: 0 1rem 1rem rgba(5, 68, 83, 0.92);
+  transition: transform 0.2s ease-in-out;
+  height: 27rem;
+
+}
+
+.cardText {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 0.7rem;
+  align-items: center;
+  
+}
+
+.cardText__Label {  
+
+  margin: 0;
+  padding: 0.2rem;
+  background-color: rgba(65, 117, 130, 0.546);
+  border-radius: 0.5rem;
+}
+
+.cardText__Link {
+  color: azure;
+}
+.cardText__Link:hover {
+  color: rgb(33, 35, 50);
+}
+
+
+
+.image {
+
+
+  width: 100%;
+  height: auto;
+  max-height: 13rem;
+  object-fit: cover;
+  border: 2px solid rgb(28, 163, 187);
+  border-radius: 1rem;
+
+}

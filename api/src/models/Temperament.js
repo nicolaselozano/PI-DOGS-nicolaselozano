@@ -13,6 +13,15 @@ module.exports = (sequelize) => {
         name:{
             type:DataTypes.STRING,
             allowNull:false,
+            validate: {
+                isUrl: true,
+                notNull:{
+                   msg: "Name is required"
+                },
+                notEmpty:{
+                  msg: "Name can't be empty"
+                }, 
+            },
         }
 
     }, { timestamps: false })

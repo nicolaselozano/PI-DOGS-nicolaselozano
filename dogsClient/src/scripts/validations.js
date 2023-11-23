@@ -26,17 +26,22 @@ const validations = (data)=>{
 }
 
 const ismaxMin = (data) => {
-        
-    if (data.length < 7)return false;
 
-    if(data.length === 7) return true;
 
+    if(data.length === 6 || data.length === 12) data = data.slice(0, -1);
     
-    if(data.length === 11){
+    
+    if(data.length >= 11 || data.length > 4 ){
 
-        const deleteYear = data.replace(" years","")
+        let dataArr ="";
 
-        const dataArr = deleteYear.split("-");
+        if(data.includes(" years")){
+            const deleteYear = data.replace(" years","")
+            dataArr = deleteYear.split("-");
+        }else{
+            dataArr = data.trim().split("-");
+        }
+
         const firstNumber = parseInt(dataArr[0]);
         const secondNumber = parseInt(dataArr[1]);
     
@@ -45,7 +50,7 @@ const ismaxMin = (data) => {
         }
         return true;
     
-    }else return false;
+    }else return true;
 
 }
 

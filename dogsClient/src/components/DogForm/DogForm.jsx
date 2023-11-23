@@ -32,7 +32,6 @@ const DogForm = () => {
     }, [infoDog]); 
     
     const handleChange = (event) => {
-        
         //setInfoDog
             if (event && event.target) {
 
@@ -98,6 +97,7 @@ const DogForm = () => {
       };
     const handleSubmit = (event) =>{
         event.preventDefault();
+
         const isInfoDogEmpty = Object.values(infoDog).some((value) => !value);
 
         if (isInfoDogEmpty) {
@@ -106,6 +106,7 @@ const DogForm = () => {
         }else if (Object.values(errors).every((error) => !error)) {
 
             console.log("se subio el perro")
+
             createDog(infoDog);
 
         }

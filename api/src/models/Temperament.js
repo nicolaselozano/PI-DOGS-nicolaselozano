@@ -14,7 +14,6 @@ module.exports = (sequelize) => {
             type:DataTypes.STRING,
             allowNull:false,
             validate: {
-                isUrl: true,
                 notNull:{
                    msg: "Name is required"
                 },

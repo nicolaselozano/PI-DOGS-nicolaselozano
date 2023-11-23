@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import {useDispatch, useSelector} from "react-redux";
-import { getDogs,setPaginacion } from "../../redux";
+import { getDogs,setPaginacion, updateDogs } from "../../redux";
 import Cards from "./Cards/Cards";
 import Filter from "./Filter/Filter";
 import styles from "./homepage.module.css"
@@ -22,6 +22,10 @@ const HomePage = () => {
         }
 
         fetchData()
+
+        return () =>{
+            dispatch(updateDogs())
+        }
 
     },[])
 
@@ -67,6 +71,14 @@ const HomePage = () => {
             case "DESCENDENTE":
                 dispatch(setPaginacion("filter",filtredDogs,{type:"DESCENDENTE",reset:0}));
                 setActualFilter({type:"DESCENDENTE"})
+                break;
+            case "W_ASCENDENTE":
+                dispatch(setPaginacion("filter",filtredDogs,{type:"W_ASCENDENTE",reset:0}))
+                setActualFilter({type:"W_ASCENDENTE"})
+                break;
+            case "W_DESCENDENTE":
+                dispatch(setPaginacion("filter",filtredDogs,{type:"W_DESCENDENTE",reset:0}))
+                setActualFilter({type:"W_DESCENDENTE"})
                 break;
             default:
                 dispatch(setPaginacion("filter",AllDogs,{type:"ASCENDENTE",reset:0}));

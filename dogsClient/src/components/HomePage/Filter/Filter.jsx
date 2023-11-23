@@ -20,6 +20,12 @@ const Filter = ({handleFilter}) => {
         handleFilter({type : event.target.value})
 
     }
+
+    const handleSelectWeightFilter = (event) => {
+
+        handleFilter({type : event.target.value})
+
+    }
     return(
 
         <div>
@@ -34,12 +40,21 @@ const Filter = ({handleFilter}) => {
             </div>
 
             <div>
+                <label htmlFor="">Order A-Z</label>
                 <select onChange={handleSelectOrder} name="ORDER" id="">
                         <option value="ASCENDENTE">Ascendente</option>
                         <option value="DESCENDENTE">Descendente</option>
                 </select>
             </div>
 
+            <div>
+                <label htmlFor="">Order By Weight</label>
+                <select onChange={handleSelectWeightFilter} name="" id="">
+                        <option value="W_ASCENDENTE">Ascendente</option>
+                        <option value="W_DESCENDENTE">Descendente</option>
+                </select>
+                
+            </div>
         
         </div>
         

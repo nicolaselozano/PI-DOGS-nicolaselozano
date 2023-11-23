@@ -3,3 +3,5 @@ export const ORIGINAPI = "ORIGINAPI";
 export const ORIGINDB = "ORIGINDB";
 export const ASCENDENTE = "ASCENDENTE";
 export const DESCENDENTE = "DESCENDENTE";
+export const W_DESCENDENTE = "W_DESCENDENTE";
+export const W_ASCENDENTE = "W_ASCENDENTE";

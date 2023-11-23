@@ -19,7 +19,7 @@ const router = Router();
 
 router.post("/",postDog);
 
-router.delete("/delete",);
+// router.delete("/delete",);
 
 router.get("/", (req,res) =>{
 

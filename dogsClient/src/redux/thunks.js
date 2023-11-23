@@ -49,15 +49,30 @@ export const searchBreedByname = (name) =>{
 
     return async (dispatch,getState) =>{
 
+        const state = getState();
+
         try {
             
             const dataSearch = await getSearchByName(name);
 
+            
 
+            if(!dataSearch.length){
 
-            dispatch(setSearchBreed({
-                filtredDogs : dataSearch,
-            }))
+                const getBreedsDB = state.dogs.AllDogs.filter((breed) => isNaN(breed.id));
+
+                const filterDB = getBreedsDB.filter((breed) => breed.name.includes(name));
+                
+                dispatch(setSearchBreed({
+                    filtredDogs : filterDB,
+                }))
+
+            }else{
+                dispatch(setSearchBreed({
+                    filtredDogs : dataSearch,
+                }))
+            }
+
 
         } catch (error) {
 
@@ -72,48 +87,39 @@ export const searchBreedByname = (name) =>{
 //filtro los perros segun su especificacion si la hay y me muevo por las paginas
 
 export const setPaginacion = (moveTo, data, filter) => {
-
     return (dispatch, getState) => {
         dispatch(updateDogs());
         const state = getState();
-        let next_page = state.dogs.page + 1;
-        let prev_page = state.dogs.page - 1;
+        
+        let next_page = state.dogs.page + (moveTo === "next" ? 1 : 0);
+        let prev_page = state.dogs.page + (moveTo === "prev" ? -1 : 0);
+        
         if(filter && filter.reset == 1 ){
             next_page = 1;
             prev_page = -1;
 
         }
+
         next_page = Math.max(1, next_page);
         prev_page = Math.max(0, prev_page);
 
-        const first_index = moveTo === "next" ? next_page * viewBreeds : prev_page * viewBreeds;
+        const startIndex = (moveTo === "next" ? next_page : prev_page) * viewBreeds;
 
-        let filtredBreeds = [];
-        let filtering = [];
-        if (filter) {
-            filtering = filterBreeds(data, filter);
-            filtredBreeds = [...filtering].splice(first_index, viewBreeds);
-        } else {
-            filtredBreeds = [...data].splice(first_index, viewBreeds);
+        const filtering = filter ? filterBreeds(data, filter) : data;
+        let filtredBreeds = filtering.slice(startIndex, startIndex + viewBreeds);
+
+        if (!filtredBreeds[0] && moveTo === "next") {
+            next_page--;
+            const newIndex = state.dogs.page * viewBreeds;
+            filtredBreeds = filtering.slice(newIndex, newIndex + viewBreeds);
         }
 
-        if (moveTo === "filter"){
-            dispatch(paginacion({
-                actualDogs: filtredBreeds,
-                filtredDogs: filtering,
-                page:0,
-            }));
-        }else{
-            dispatch(paginacion({
-                actualDogs: filtredBreeds,
-                filtredDogs: data,
-                page: moveTo === "next" ? next_page : prev_page,
-            }));
-        }
+        const pageData = moveTo === "filter" ? { actualDogs: filtredBreeds, filtredDogs: filtering, page: 0 } :
+            { actualDogs: filtredBreeds, filtredDogs: data, page: moveTo === "next" ? next_page : prev_page };
 
+        dispatch(paginacion(pageData));
     };
 };
-
 
 
 //Detail 

@@ -44,10 +44,10 @@ const Nav = () => {
 
                 <div  className={styles.link__container}>
 
-                    {location.pathname !== "/create" && location.pathname !== `/home/detail/${id}` ? 
-                    <Link to="/create" className={styles.link}>Create Breed</Link>:
-                    <Link to="/home" className={styles.link}>Home</Link>}
                     {location.pathname !== "/" ? <Link to="/" className={styles.link}>Inicio</Link> :null}
+                    {location.pathname !== "/create" && location.pathname !== `/home/detail/${id}` ? 
+                    <Link to="/create" className={styles.link}>Create</Link>:
+                    <Link to="/home" className={styles.link}>Home</Link>}
                     {location.pathname === "/home" ? <div className={styles.container__search}>
                     <input value={searchName} onChange={handleChange}></input>
                     <button onClick={handleClickSearch}>Search</button>

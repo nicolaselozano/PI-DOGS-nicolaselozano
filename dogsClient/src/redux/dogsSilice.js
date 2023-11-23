@@ -43,6 +43,7 @@ export const dogsReducer = createSlice ({
         },
         setSearchBreed: (state,action) =>{
             state.filtredDogs = action.payload.filtredDogs;
+            state.page = 0;
         },
     },
 })

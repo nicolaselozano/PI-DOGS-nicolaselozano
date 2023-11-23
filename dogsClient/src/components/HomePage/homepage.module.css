@@ -32,6 +32,6 @@ button:hover {
 
 @media (max-width: 600px){
   .container {
-    margin-top: 16rem; 
+    margin-top: 12rem; 
   }
 }

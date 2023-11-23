@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { setDogs, updateDogs,paginacion,setDetail,cleanDetail } from "./dogsSilice"
+import { setDogs, updateDogs,paginacion,setDetail,cleanDetail,setSearchBreed } from "./dogsSilice"
 
 import {filterBreeds} from "../scripts/Filters/filterBreeds";
 
@@ -8,6 +8,8 @@ import {getBreeds} from "../services/getBreeds"
 import {getBreedById} from "../services/getBreedById"
 
 import { useNavigate } from 'react-router-dom';
+
+import getSearchByName from "../services/getSearchByName";
 
 const viewBreeds = 8;
 
@@ -34,13 +36,38 @@ export const getDogs = () => {
 
         } catch (error) {
             
-            throw new Error(error.message)
+            throw new Error(error.message);
 
         }
 
     }
 }
 
+//busco las razas por nombre usando el metodo get search
+
+export const searchBreedByname = (name) =>{
+
+    return async (dispatch,getState) =>{
+
+        try {
+            
+            const dataSearch = await getSearchByName(name);
+
+
+
+            dispatch(setSearchBreed({
+                filtredDogs : dataSearch,
+            }))
+
+        } catch (error) {
+
+            throw new Error(error.message);
+
+        }
+
+    }
+
+}
 
 //filtro los perros segun su especificacion si la hay y me muevo por las paginas
 

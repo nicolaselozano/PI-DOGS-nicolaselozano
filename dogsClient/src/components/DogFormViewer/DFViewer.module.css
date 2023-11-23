@@ -1,0 +1,47 @@
+.card {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 15rem;
+    padding: 1rem;
+    border: 1px solid rgb(229, 211, 211);
+    border-radius: 1rem;
+    overflow: hidden;
+    background-color: rgba(47, 202, 192, 0.587);
+    box-shadow: 0 1rem 1rem rgba(5, 68, 83, 0.92);
+    transition: transform 0.2s ease-in-out;
+}
+  
+.cardText {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+    align-items: center;
+    
+}
+  
+.cardText__Label {  
+  
+    margin: 0;
+    padding: 0.2rem;
+    color: aliceblue;
+    border: 0.3rem dotted black;
+
+}
+  
+  
+  
+.image {
+  
+    
+    width: 100%;
+    height: auto;
+    max-height: 13rem;
+    object-fit: cover;
+    border: 2px solid rgb(28, 163, 187);
+    border-radius: 1rem;
+  
+}

@@ -3,7 +3,7 @@ import {createDog} from "../../services/apiService"
 import DogFormViewer from "../DogFormViewer/DogFormViewer";
 import SelectTemperament from "../SelectTemperament/SelectTemperament";
 import validations from "../../scripts/validations";
-import styles from "./dogForm.mudule.css";
+import styles from "./dogForm.module.css";
 
 
 const DogForm = () => {
@@ -97,10 +97,17 @@ const DogForm = () => {
         });
       };
     const handleSubmit = (event) =>{
-        
         event.preventDefault();
-        if (Object.values(errors).every((error) => !error)) {
+        const isInfoDogEmpty = Object.values(infoDog).some((value) => !value);
+
+        if (isInfoDogEmpty) {
+            alert("Por favor, completa los campos antes de enviar el formulario.");
+            return;
+        }else if (Object.values(errors).every((error) => !error)) {
+
+            console.log("se subio el perro")
             createDog(infoDog);
+
         }
 
     }

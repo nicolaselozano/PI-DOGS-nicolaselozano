@@ -16,10 +16,10 @@ const {getBreedsImage} = require("../handlers/getBreedsImage")
 const router = Router();
 
 
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
 
 router.post("/",postDog);
+
+router.delete("/delete",);
 
 router.get("/", (req,res) =>{
 

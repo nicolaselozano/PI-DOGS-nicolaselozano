@@ -27,7 +27,7 @@ const HomePage = () => {
 
     useEffect(()=>{
             
-        dispatch(setPaginacion("prev", AllDogs));
+        handleFilter("ASCENDENTE");
 
     },[AllDogs])
 

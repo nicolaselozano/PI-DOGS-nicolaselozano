@@ -3,6 +3,7 @@ const isImage=/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/;
 
 const validations = (data)=>{
 
+    
     const errors = {};
 
 
@@ -12,7 +13,9 @@ const validations = (data)=>{
 
     if(data.weight==="" || !ismaxMin(data.weight)) errors.weight = "Solo se permiten numeros,tiene que especificar correctamente el rango";
 
-    if(data.life_span==="" || data.life_span.trim() === "years" || !ismaxMin(data.life_span) ) errors.life_span = "Solo se permiten numeros,tiene que especificar correctamente el rango";
+    const lifeSpanMaxMin = ismaxMin(data.life_span);
+    
+    if(data.life_span==="" || data.life_span.trim() === "years" || !lifeSpanMaxMin ) errors.life_span = "Solo se permiten numeros,tiene que especificar correctamente el rango de menor a mayor valido";
 
     if(!isImage.test(data.image)) errors.image = "Tiene que ser el link valido a una imagen"
 
@@ -23,14 +26,26 @@ const validations = (data)=>{
 }
 
 const ismaxMin = (data) => {
+        
+    if (data.length < 7)return false;
 
-    if(data.length >= 2) return true;
+    if(data.length === 7) return true;
 
-    const dataArr = data.split("-");
     
-    if(isNaN(dataArr[0] || dataArr[1]) || dataArr[0] > dataArr[1]) return false;
+    if(data.length === 11){
 
-    return true;
+        const deleteYear = data.replace(" years","")
+
+        const dataArr = deleteYear.split("-");
+        const firstNumber = parseInt(dataArr[0]);
+        const secondNumber = parseInt(dataArr[1]);
+    
+        if (secondNumber < firstNumber) {
+            return false;
+        }
+        return true;
+    
+    }else return false;
 
 }
 

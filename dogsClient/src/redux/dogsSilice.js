@@ -40,8 +40,11 @@ export const dogsReducer = createSlice ({
         cleanDetail: (state,/*action*/) => {
             state.detailBreed = {}
             state.actualDogs = []
-        }
+        },
+        setSearchBreed: (state,action) =>{
+            state.filtredDogs = action.payload.filtredDogs;
+        },
     },
 })
 
-export const {updateDogs,setDogs,paginacion,setDetail,cleanDetail} = dogsReducer.actions;
+export const {updateDogs,setSearchBreed,setDogs,paginacion,setDetail,cleanDetail} = dogsReducer.actions;

@@ -12,8 +12,8 @@ export const SBackground = styled.div.attrs((props)=> ({
   justify-content: center;
   text-align: center;
   background-image: url(${backgroundURLimg});
-  min-height: max-content;
-  min-width: max-content;
+  height: 100%;
+  width: 100%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

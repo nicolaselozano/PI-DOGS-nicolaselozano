@@ -1,4 +1,3 @@
-const { config } = require("dotenv");
 const {Dog, Temperament} = require("../db");
 
 require("dotenv").config();

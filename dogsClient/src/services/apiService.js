@@ -1,4 +1,5 @@
-const URL = "http://localhost:3001/dogs"
+// const URL = "http://localhost:3001/dogs" SI LO EJECUTAS DE FORMA LOCAL , HAY QUE REMPLAZARLOS EN TODOS LOS SERVICIOS
+const URL = "https://dog-santuary-apidogs-pi.onrender.com/dogs" 
 
 
 const init= {

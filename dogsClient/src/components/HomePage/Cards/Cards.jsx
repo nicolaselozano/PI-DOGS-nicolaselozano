@@ -14,7 +14,7 @@ const Cards = ({breeds}) => {
     return(
         <div className={styles.container}>
             {
-                breeds ?
+                breeds.length ?
                 breeds.map((data,index) => {
 
                     const {reference_image_id,image,Temperaments,temperament,name,weight,id} = data;
@@ -23,8 +23,10 @@ const Cards = ({breeds}) => {
 
                     const verifiedWeight = weight.length ? weight : weight.metric;
 
+                    console.log(temperament)
                     const verifiedImage = image.length > 0 ? Promise.resolve(image) : getImage(reference_image_id);
                 
+
                     return(
 
                         <div key={index}>

@@ -9,7 +9,7 @@ const HomePage = () => {
 
     const dispatch = useDispatch();
 
-    const {isLoading,actualDogs,filtredDogs,AllDogs} = useSelector( state => state.dogs);
+    const {isLoading,actualDogs,filtredDogs,AllDogs,page} = useSelector( state => state.dogs);
 
     const [actualFilter,setActualFilter] = useState({})
 
@@ -98,6 +98,7 @@ const HomePage = () => {
                 <Cards breeds={actualDogs}/>
                 <div>
                     <button className={styles.container__pagination} onClick={handlePrevPage}>Prev</button>
+                    <span>{page}</span>
                     <button className={styles.container__pagination} onClick={handleNextPage}>next</button>
                 </div>
 

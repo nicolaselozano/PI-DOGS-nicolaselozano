@@ -1,4 +1,4 @@
-const URL = "http://localhost:3001/dogs";
+const URL = "https://dog-santuary-apidogs-pi.onrender.com/dogs";
 
 
 const init= {

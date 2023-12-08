@@ -14,7 +14,7 @@ const Cards = ({breeds}) => {
     return(
         <div className={styles.container}>
             {
-                Array.isArray(breeds) && breeds.length ?
+                breeds && Array.isArray(breeds) ?
                 breeds.map((data,index) => {
 
                     const {reference_image_id,image,Temperaments,temperament,name,weight,id} = data;

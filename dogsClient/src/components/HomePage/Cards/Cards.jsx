@@ -24,7 +24,7 @@ const Cards = ({breeds}) => {
                     const verifiedWeight = weight.length ? weight : weight.metric;
 
                     console.log(temperament)
-                    const verifiedImage = image.length > 0 ? Promise.resolve(image) : getImage(reference_image_id);
+                    const verifiedImage = Array.isArray(image) && image.length > 0 ? Promise.resolve(image) : getImage(reference_image_id);
                 
 
                     return(

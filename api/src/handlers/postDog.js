@@ -1,10 +1,16 @@
+const { config } = require("dotenv");
 const {Dog, Temperament} = require("../db");
 
+require("dotenv").config();
+
+const {PERMITIR_POST} = process.env
 
 const postDog = async (req,res) => {
 
     //temperament_id es un arreglo con id de temperamentos
     const {image, height, weight, life_span, name,temperament_id} = req.body;
+
+    if(!PERMITIR_POST) return false;
 
     try {
 

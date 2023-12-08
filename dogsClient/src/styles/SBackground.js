@@ -16,7 +16,7 @@ export const SBackground = styled.div.attrs((props)=> ({
   min-height:100vh;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   margin: 0;
   padding: 0;
 `

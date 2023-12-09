@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import imgExample from "../../../assets/ejemplodogo.jpg";
 import getDetail from "../../../hooks/getDetail";
 import getImage from "../../../services/getImage";
+import style from "./detail.module.css";
 
 
 const Detail = () =>{
@@ -50,7 +51,7 @@ const Detail = () =>{
         };
       }, [image, reference_image_id]);
     return(
-        <div>
+        <div className={style.container}>
 
 
             <h2 className="">{name}</h2>

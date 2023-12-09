@@ -23,7 +23,7 @@ const Cards = ({breeds}) => {
 
                     const verifiedWeight = weight.length ? weight : weight.metric;
 
-                    const verifiedImage = Array.isArray(image) && !reference_image_id ? Promise.resolve(image) : getImage(reference_image_id);
+                    const verifiedImage = !reference_image_id ? Promise.resolve(image) : getImage(reference_image_id);
                 
 
                     return(

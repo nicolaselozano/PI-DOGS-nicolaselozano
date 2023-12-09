@@ -89,12 +89,13 @@ const DogForm = () => {
     };
 
     const handleSelectTemperament = (selectedTemp) => {
-        console.log(selectedTemp)
+
         setInfoDog({
           ...infoDog,
           temperament_id: selectedTemp ? selectedTemp.temperament_id : null,
         });
-      };
+
+    };
     const handleSubmit = (event) =>{
         event.preventDefault();
 

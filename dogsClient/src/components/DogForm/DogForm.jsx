@@ -105,7 +105,7 @@ const DogForm = () => {
             return;
         }else if (Object.values(errors).every((error) => !error)) {
 
-            console.log("se subio el perro")
+            alert("se Esta subiendo el perro a la DB...");
 
             createDog(infoDog);
 

@@ -21,8 +21,8 @@ export const createDog = async (dataDog)=>{
             })
     
             if(response.ok){
-    
-                console.log("perro subido correctamente")
+                
+                alert("perro subido correctamente");
     
             }
         }
